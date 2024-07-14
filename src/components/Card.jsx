@@ -20,7 +20,7 @@ const Card = ({course,likedCourses,setLikedCourses}) => {
             <div className='card-img-container'>
                 <img style={{width:'300px'}} src={course.image.url} alt="" />
                 <div className='card-liked-btn-container'>
-                      <button style={{border:'2px solid white',backgroundColor:'inherit',borderRadius:'50%'}} onClick={clickHandler}>
+                      <button style={{border:'2px solid white',backgroundColor:'inherit',borderRadius:'50%',cursor:'pointer'}} onClick={clickHandler}>
                           {
                               likedCourses.includes(course.id) ?
                                   (<FcLike fontSize="1.75rem" />)
