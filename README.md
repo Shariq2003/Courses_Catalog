@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 📚 Courses Catalog
 
-## Available Scripts
+**Browse top courses by category, like your favourites and get instant feedback — a React app that fetches live course data from an API.**
 
-In the project directory, you can run:
+[![Live Demo](https://img.shields.io/badge/Live_Demo-courses--catalog.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://courses-catalog.vercel.app)
 
-### `npm start`
+![React](https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![React Icons](https://img.shields.io/badge/React_Icons-E91E63?style=flat-square&logo=react&logoColor=white)
+![React Toastify](https://img.shields.io/badge/React_Toastify-FFCA28?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Shariq2003/Courses_Catalog?style=flat-square)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Features](#-features) · [How it works](#-how-it-works) · [Getting Started](#-getting-started) · [Structure](#-project-structure)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</div>
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+| | Feature |
+|---|---|
+| 🌐 | **Live data** fetched from a public courses API on load |
+| 🗂️ | **Category filter** — All · Development · Business · Design · Lifestyle |
+| ❤️ | **Like / unlike** any course, with a heart toggle |
+| 🔔 | **Toast notifications** for likes, unlikes and fetch errors |
+| ⏳ | **Loading spinner** while courses are fetched |
+| 📝 | **Readable cards** — image, title and a trimmed description |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔄 How it works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```mermaid
+flowchart TD
+    A(["App mounts"]) --> B["fetch(apiUrl)"]
+    B -- "success" --> C["courses grouped by category"]
+    B -- "error" --> X["🔔 toast: Error in fetching Courses"]
+    C --> F{"Selected category"}
+    F -- "All" --> G["Flatten every category"]
+    F -- "Development / Business / …" --> H["Only that category"]
+    G --> R["Render cards"]
+    H --> R
+    R --> L["❤️ Like → likedCourses state + toast"]
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+```bash
+git clone https://github.com/Shariq2003/Courses_Catalog.git
+cd Courses_Catalog
+npm install
+npm start            # http://localhost:3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
+<summary><b>📜 Available scripts</b></summary>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Command | What it does |
+|---|---|
+| `npm start` | Run the dev server |
+| `npm run build` | Production build into `build/` |
+| `npm test` | Run tests |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+</details>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📁 Project Structure
 
-## Learn More
+<details>
+<summary><b>Expand tree</b></summary>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```text
+src/
+├── components/
+│   ├── Filter.jsx     # category buttons
+│   ├── Cards.jsx      # filters & lists cards, owns likedCourses
+│   ├── Card.jsx       # single course + like button
+│   └── Spinner.js
+├── data.js            # apiUrl + filter categories
+└── App.js             # fetch, loading state, layout
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</details>
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<div align="center">
 
-### Analyzing the Bundle Size
+Built by **[Shariq](https://github.com/Shariq2003)** · [LinkedIn](https://www.linkedin.com/in/shariq-sd)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+⭐ If you like this project, consider giving it a star!
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</div>
